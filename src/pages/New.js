@@ -29,9 +29,15 @@ function NewPixslyFunc() {
       },
       body: JSON.stringify(newPixsly),
     };
+    console.log(options)
+
+    // const responseData = await fetch(
+    //   "https://pixsly.onrender.com/pixslys",
+    //   options
+    // );
 
     const responseData = await fetch(
-      "https://pixsly.onrender.com/pixsly",
+      "http://localhost:8080/pixslys",
       options
     );
 

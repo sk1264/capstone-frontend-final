@@ -20,8 +20,14 @@ function Home() {
 
   const [pixslysData, setPixslysData] = useState([]);
 
+  // const fetchPixslys = async () => {
+  //   const response = await fetch("https://pixsly.onrender.com/pixsly");
+  //   const data = await response.json();
+  //   setPixslysData(data);
+  // };
+
   const fetchPixslys = async () => {
-    const response = await fetch("https://pixsly.onrender.com/pixsly");
+    const response = await fetch("http://localhost:8080/pixslys");
     const data = await response.json();
     setPixslysData(data);
   };

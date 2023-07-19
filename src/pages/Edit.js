@@ -13,7 +13,8 @@ function Edit() {
   const [descriptionState, setDescriptionState] = useState('');
   const { id } = useParams();
   const navigate = useNavigate();
-  const url = `https://pixsly.onrender.com/pixsly/${id}`; 
+  // const url = `https://pixsly.onrender.com/pixsly/${id}`; 
+  const url = `http://localhost:8080/pixslys/${id}`; 
 
   useEffect(() => {
     const fetchPixsly = async () => {
@@ -59,7 +60,8 @@ function Edit() {
       body: JSON.stringify(Edit),
     };
 
-    const url = `https://pixsly.onrender.com/pixsly/${id}`;
+    // const url = `https://pixsly.onrender.com/pixsly/${id}`;
+    const url = `http://localhost:8080/pixslys/${id}`;
 
     try {
       const responseData = await fetch(url, options);
@@ -81,7 +83,8 @@ function Edit() {
       method: "DELETE",
     };
 
-    const url = `https://pixsly.onrender.com/pixsly/${id}`;
+    // const url = `https://pixsly.onrender.com/pixsly/${id}`;
+    const url = `http://localhost:8080/pixslys/${id}`;
 
     try {
       const responseData = await fetch(url, options);

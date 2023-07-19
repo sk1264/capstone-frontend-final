@@ -1,4 +1,4 @@
-const URL = 'https://pixsly.onrender.com/pixsly'
+const URL = 'https://pixsly.onrender.com/pixslys'
 
 export const pixslysLoader = async () => {
     const response = await fetch(URL + '/pixslys')

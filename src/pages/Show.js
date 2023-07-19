@@ -7,20 +7,16 @@ import Button from 'react-bootstrap/Button';
 
 function Show() {
   const [pixsly, setPixslyState] = useState(null);
-
-  const [number, setNumber] = useState(5);
- 
   const { id } = useParams();
-  console.log(useParams());
-  const url = `https://pixsly.onrender.com/pixsly/${id}`; 
- 
+  const url = `http://localhost:8080/pixslys/${id}`;
+
   useEffect(() => {
     const fetchPixsly = async () => {
       console.log("going to fetch person with id of: ", id);
       try {
         const responseData = await fetch(url);
-        const pixslyData = await responseData.json(); 
-        console.log(pixslyData); 
+        const pixslyData = await responseData.json();
+        console.log(pixslyData);
         console.log(
           "Setting state, about to rerender..(not remount, just re-render)."
         );
@@ -29,11 +25,10 @@ function Show() {
         console.error(error);
       }
     };
-    //this is the code that gets activated
-    console.log("#2: inside useeffect...component mounted, now we are here.");
 
-    fetchPixsly(); //fetching data and setting state
-  }, [id, number]);
+    console.log("#2: inside useEffect...component mounted, now we are here.");
+    fetchPixsly();
+  }, [id]);
 
   return (
     <div className="show">
@@ -58,8 +53,8 @@ function Show() {
                 {pixsly.description}
               </Accordion.Body>
             </Accordion.Item>
-
           </Accordion>
+
           <Link to={`/${pixsly._id}/edit`}>
             <Button>EDIT</Button>
           </Link>
