@@ -1,10 +1,35 @@
 .card-container {
-    margin: 20px;
-    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    width: 2000px;
   }
+  
+  
 
-  body {
-      background: rgb(248, 150, 191);
-      background-size:stretch;
-      background-repeat: no-repeat;
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background-color: #ffcbe5;
+    background-size:cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
   }
+  
+  /* .home-container {
+    min-height: 100%;
+    background-color: #ffcbe5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+   */

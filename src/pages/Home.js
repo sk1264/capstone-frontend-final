@@ -15,16 +15,10 @@ function Home() {
     alignItems: 'center',
     flexDirection: 'column',
     textAlign: 'center',
+    height: '100%',
   };
 
-
   const [pixslysData, setPixslysData] = useState([]);
-
-  // const fetchPixslys = async () => {
-  //   const response = await fetch("https://pixsly.onrender.com/pixsly");
-  //   const data = await response.json();
-  //   setPixslysData(data);
-  // };
 
   const fetchPixslys = async () => {
     const response = await fetch("http://localhost:8080/pixslys");
@@ -64,6 +58,7 @@ function Home() {
       return <PixslyCard key={index} pixsly={pixsly} />;
     });
   }
+
   return (
     <div>
       {pixslysData.length > 0 ? pixslysMarkup : <div>Loading</div>}

@@ -1,12 +1,14 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Header.css';
 
 function Header() {
   return (
-    <header>
+    <header className="header-container">
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -19,11 +21,10 @@ function Header() {
         </Container>
       </Navbar>
       <div style={{ textAlign: 'center' }}>
-      <h1>Pixsly</h1>
+        <h1 className="header-title">Pixsly</h1>
       </div>
     </header>
   );
 }
 
 export default Header;
-
