@@ -37,13 +37,8 @@ function NewPixslyFunc() {
     };
     console.log(options)
 
-    // const responseData = await fetch(
-    //   "https://pixsly.onrender.com/pixslys",
-    //   options
-    // );
-
     const responseData = await fetch(
-      "http://localhost:8080/pixslys",
+      "https://pixsly-backend.onrender.com/pixslys",
       options
     );
 

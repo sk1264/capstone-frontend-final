@@ -17,7 +17,7 @@ function Edit() {
   const [image, setImage] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  const url = `http://localhost:8080/pixslys/${id}`; 
+  const url = `https://pixsly-backend.onrender.com/pixslys/${id}`; 
 
   useEffect(() => {
     const fetchPixsly = async () => {

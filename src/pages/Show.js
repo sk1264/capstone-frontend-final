@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 function Show() {
   const [pixsly, setPixslyState] = useState(null);
   const { id } = useParams();
-  const url = `http://localhost:8080/pixslys/${id}`;
+  const url = `https://pixsly-backend.onrender.com/pixslys/${id}`;
 
   useEffect(() => {
     const fetchPixsly = async () => {
