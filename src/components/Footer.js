@@ -3,7 +3,7 @@ import React from "react";
 function Footer(props) {
   return (
         <div className="row text-center">
-          <strong>© 2023 Samantha Karas Inc.</strong>
+          <center>© 2023 Samantha Karaś Inc.</center>
         </div>
   );
 }

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import PixslyCard from '../components/PixslyCard';
 import './Home.css';
@@ -32,18 +31,15 @@ function Home() {
 
   const pixslysMarkup = (
     <div style={centerStyle}>
-      <Row xs={1} sm={2} md={3} lg={4} className="g-4 justify-content-center" style={{ margin: '2 auto' }}>
+      <Row xs={1} sm={2} md={3} lg={4} className="g-0 justify-content-center" style={{ margin: '2 auto' }}>
         {pixslysData.map((pixsly, index) => (
           <Col key={index} className="mb-4">
-            <Card style={{ width: '18rem' }}>
+            <Card className="custom-card p-0">
               <Card.Img variant="top" src={pixsly.image} />
               <Card.Body>
-                <Card.Title>{pixsly.name}</Card.Title>
-                <Button variant="success" as={Link} to={`/${pixsly._id}`}>See Details</Button>
+                {/* <Card.Title>{pixsly.name}</Card.Title> */}
+                <Button variant="transparent btn-square btn-sm" as={Link} to={`/${pixsly._id}`}>...</Button>
               </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item><strong>Description:</strong> {pixsly.description}</ListGroup.Item>
-              </ListGroup>
             </Card>
           </Col>
         ))}

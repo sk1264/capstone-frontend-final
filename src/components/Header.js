@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import './Header.css';
+import '../fonts/LaBelleAurore-Regular.ttf'
 
 function Header() {
   return (
@@ -21,7 +21,7 @@ function Header() {
         </Container>
       </Navbar>
       <div style={{ textAlign: 'center' }}>
-        <h1 className="header-title">Pixsly</h1>
+        <h1 className="header-title">pixsly&#128147;</h1>
       </div>
     </header>
   );

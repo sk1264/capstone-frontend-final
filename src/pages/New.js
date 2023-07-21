@@ -2,13 +2,18 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
 import './New.css';
+import ImageUpload from "../components/ImageUpload";
 
 function NewPixslyFunc() {
   const [nameState, setNameState] = useState("");
   const [imageState, setImageState] = useState("");
   const [descriptionState, setDescriptionState] = useState("");
+  const [image, setImage] = useState(() => "");
   const navigate = useNavigate();
+  
 
   const onChangeHandler = (e, setValue) => {
     setValue(e.target.value);
@@ -18,9 +23,10 @@ function NewPixslyFunc() {
     event.preventDefault();
     const newPixsly = {
       name: nameState,
-      image: imageState,
+      image,
       description: descriptionState,
     };
+    console.log(newPixsly)
 
     const options = {
       method: "POST",
@@ -41,19 +47,19 @@ function NewPixslyFunc() {
       options
     );
 
-	const newPixslyObj = await responseData.json();
-	console.log(newPixslyObj)
+    const newPixslyObj = await responseData.json();
+    console.log(newPixslyObj)
 
     navigate("/");
   };
 
   return (
-    <div className="new">
+    <Container className="new-pixsly">
       <Form onSubmit={onSubmitHandler}>
-        <Form.Group className="mb-3" controlId="formName">
+        <Form.Group className="mb-1" controlId="formName">
           <Form.Label>Name</Form.Label>
           <Form.Control
-		  	name="name"
+            name="name"
             type="text"
             placeholder="Enter name"
             value={nameState}
@@ -64,33 +70,40 @@ function NewPixslyFunc() {
           </Form.Text>
         </Form.Group>
 
-		<Form.Group className="mb-3" controlId="formImage">
+        <ImageUpload
+        setImage={setImage}
+        initialState="https://i.ibb.co/K94DwZc/empty.jpg"
+      />
+
+        <Form.Group className="mb-1" controlId="formImage">
           <Form.Label>Image</Form.Label>
           <Form.Control
-		  	name="image"
+            name="image"
             type="text"
             placeholder="Enter Image URL"
             value={imageState}
             onChange={(e) => onChangeHandler(e, setImageState)}
           />
-          <Form.Text className="text-muted">
-          </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formDescription">
+        <Form.Group className="mb-1" controlId="formDescription">
           <Form.Label>Description</Form.Label>
           <Form.Control
-		  	name="description"
-            type="text"
+            name="description"
+            as="textarea"
+            rows={3}
             placeholder="Description"
             value={descriptionState}
             onChange={(e) => onChangeHandler(e, setDescriptionState)}
           />
+
         </Form.Group>
-        
-        <Button className="primary" type="submit" value="New Post">Submit</Button>
+
+        <Col className="d-flex justify-content-center">
+          <Button className="btn-primary" type="submit">Submit</Button>
+        </Col>
       </Form>
-    </div>
+    </Container>
   );
 }
 

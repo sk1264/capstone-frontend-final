@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import './Edit.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import ImageUpload from '../components/ImageUpload';
+
 
 function Edit() {
 
@@ -11,9 +13,10 @@ function Edit() {
 
   const [nameState, setNameState] = useState('');
   const [descriptionState, setDescriptionState] = useState('');
+  const [imageUrlState, setImageUrlState] = useState('');
+  const [image, setImage] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
-  // const url = `https://pixsly.onrender.com/pixsly/${id}`; 
   const url = `http://localhost:8080/pixslys/${id}`; 
 
   useEffect(() => {
@@ -31,7 +34,7 @@ function Edit() {
         console.error(error);
       }
     };
-    //this is the code that gets activated
+
     console.log("#2: inside useeffect...component mounted, now we are here.");
 
     fetchPixsly(); //fetching data and setting state
@@ -41,6 +44,7 @@ function Edit() {
     if (pixsly) {
       setNameState(pixsly.name);
       setDescriptionState(pixsly.description);
+      setImageUrlState(pixsly.imageUrl);
     }
   }, [pixsly]);
 
@@ -49,6 +53,8 @@ function Edit() {
     const Edit = {
       name: nameState,
       description: descriptionState,
+      imageUrl: imageUrlState,
+      image
     };
     console.log(Edit);
 
@@ -59,9 +65,6 @@ function Edit() {
       },
       body: JSON.stringify(Edit),
     };
-
-    // const url = `https://pixsly.onrender.com/pixsly/${id}`;
-    const url = `http://localhost:8080/pixslys/${id}`;
 
     try {
       const responseData = await fetch(url, options);
@@ -83,9 +86,6 @@ function Edit() {
       method: "DELETE",
     };
 
-    // const url = `https://pixsly.onrender.com/pixsly/${id}`;
-    const url = `http://localhost:8080/pixslys/${id}`;
-
     try {
       const responseData = await fetch(url, options);
       const response = await responseData.json();
@@ -101,34 +101,42 @@ function Edit() {
         <Form.Group className="mb-3" controlId="formName">
           <Form.Label>Name</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Name"
-            value={nameState}
-            onChange={(e) => onChangeHandler(e, setNameState)}
-          />
-          <Form.Text className="text-muted">Add name/color</Form.Text>
-        </Form.Group>
+  type="text"
+  placeholder="Name"
+  value={nameState}
+  onChange={(e) => onChangeHandler(e, setNameState)}
+  className="input-field"
+/>
+<Form.Label>Description</Form.Label>
+<Form.Control
+  type="text"
+  placeholder="Description"
+  value={descriptionState}
+  onChange={(e) => onChangeHandler(e, setDescriptionState)}
+  className="input-field"
+/>
 
-        <Form.Group className="mb-3" controlId="formDescription">
-          <Form.Label>Description</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Description"
-            value={descriptionState}
-            onChange={(e) => onChangeHandler(e, setDescriptionState)}
-          />
-        </Form.Group>
+<ImageUpload
+        setImage={setImage}
+        initialState={imageUrlState}
+      />
 
-        <Button variant="primary" type="submit">
+<Form.Label>Image URL</Form.Label>
+<Form.Control
+  type="text"
+  placeholder="Image URL"
+  value={imageUrlState}
+  onChange={(e) => onChangeHandler(e, setImageUrlState)}
+  className="input-field"
+/>
+        </Form.Group>
+        <Button variant="outline-secondary" type="submit" className="my-2 btn-sm">
           Submit
         </Button>
-
-        <Button variant="danger" onClick={onDeleteHandler}>
-          Delete
+        <Button variant="outline-secondary" onClick={onDeleteHandler} className="my-2 btn-sm">
+  Delete
         </Button>
       </Form>
-    
-      
     </div>
   )
 }

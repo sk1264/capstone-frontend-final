@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import './Show.css';
 import Figure from 'react-bootstrap/Figure';
-import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 
 function Show() {
@@ -28,33 +27,28 @@ function Show() {
 
     console.log("#2: inside useEffect...component mounted, now we are here.");
     fetchPixsly();
-  }, [id]);
+  }, [id, url]);
 
   return (
     <div className="show">
       {pixsly ? (
         <>
           <Figure className='img'>
-            <Figure.Image className='img'
+            <Figure.Image
+              className='img'
+              style={{ display: 'block', margin: '0 auto' }}
               width={271}
               height={280}
               alt="171x180"
               src={pixsly.image}
             />
             <Figure.Caption>
-              <h2 className ='pixslyName'>{pixsly.name}</h2>
+              <h4 className='pixslyName'>{pixsly.name}</h4>
+            </Figure.Caption>
+            <Figure.Caption>
+              <h7 className='pixslyDescription'>{pixsly.description}</h7>
             </Figure.Caption>
           </Figure>
-
-          <Accordion>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>Description:</Accordion.Header>
-              <Accordion.Body>
-                {pixsly.description}
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-
           <Link to={`/${pixsly._id}/edit`}>
             <Button>EDIT</Button>
           </Link>

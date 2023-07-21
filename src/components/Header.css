@@ -1,15 +1,14 @@
-/* body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .header-container {
-    min-height: 100%;
-    background-color: #ffcbe5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-  } */
+/* Header.css */
+@font-face {
+  font-family: 'La Belle Aurore';
+  src: url('../fonts/LaBelleAurore-Regular.ttf'); /* Specify the correct path to your font file */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.header-title {
+  font-family: 'La Belle Aurore', sans-serif;
+  font-size: 50px;
+  padding: 10px;
+  font-weight: bold;
+}
