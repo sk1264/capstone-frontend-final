@@ -120,15 +120,6 @@ function Edit() {
         setImage={setImage}
         initialState={imageUrlState}
       />
-
-<Form.Label>Image URL</Form.Label>
-<Form.Control
-  type="text"
-  placeholder="Image URL"
-  value={imageUrlState}
-  onChange={(e) => onChangeHandler(e, setImageUrlState)}
-  className="input-field"
-/>
         </Form.Group>
         <Button variant="outline-secondary" type="submit" className="my-2 btn-sm">
           Submit

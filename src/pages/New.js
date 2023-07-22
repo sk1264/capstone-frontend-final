@@ -60,26 +60,12 @@ function NewPixslyFunc() {
             value={nameState}
             onChange={(e) => onChangeHandler(e, setNameState)}
           />
-          <Form.Text className="text-muted">
-            Add name
-          </Form.Text>
         </Form.Group>
-
+        <Form.Label>Upload Image</Form.Label>
         <ImageUpload
         setImage={setImage}
         initialState="https://i.ibb.co/K94DwZc/empty.jpg"
       />
-
-        <Form.Group className="mb-1" controlId="formImage">
-          <Form.Label>Image</Form.Label>
-          <Form.Control
-            name="image"
-            type="text"
-            placeholder="Enter Image URL"
-            value={imageState}
-            onChange={(e) => onChangeHandler(e, setImageState)}
-          />
-        </Form.Group>
 
         <Form.Group className="mb-1" controlId="formDescription">
           <Form.Label>Description</Form.Label>
