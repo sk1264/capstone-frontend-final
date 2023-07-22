@@ -37,8 +37,8 @@ function Show() {
             <Figure.Image
               className='img'
               style={{ display: 'block', margin: '0 auto' }}
-              width={271}
-              height={280}
+              width={500}
+              height={600}
               alt="171x180"
               src={pixsly.image}
             />
