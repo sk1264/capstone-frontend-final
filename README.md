@@ -22,9 +22,13 @@ Render.com
 **Post Creation and Management:**
 
 As a user, I can create new posts by directly uploading photos.
+
 As a user, I can create new posts via URL jpegs.
+
 As a user, I can also edit my own posts.
+
 As a user, I can also delete my own posts.
+
 
 # Stretch Goals
 **User Authentication:**
