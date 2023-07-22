@@ -50,7 +50,7 @@ function Show() {
             </Figure.Caption>
           </Figure>
           <Link to={`/${pixsly._id}/edit`}>
-            <Button>EDIT</Button>
+          <Button variant="secondary" size="sm">EDIT</Button>
           </Link>
         </>
       ) : (

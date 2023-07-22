@@ -1,7 +1,6 @@
-/* Header.css */
 @font-face {
   font-family: 'La Belle Aurore';
-  src: url('../fonts/LaBelleAurore-Regular.ttf'); /* Specify the correct path to your font file */
+  src: url('../fonts/LaBelleAurore-Regular.ttf');
   font-weight: normal;
   font-style: normal;
 }

@@ -21,13 +21,13 @@ function Edit() {
 
   useEffect(() => {
     const fetchPixsly = async () => {
-      console.log("going to fetch person with id of: ", id);
+      console.log("fetch with id of: ", id);
       try {
         const responseData = await fetch(url);
         const pixslyData = await responseData.json(); 
         console.log(pixslyData); 
         console.log(
-          "Setting state, about to rerender..(not remount, just re-render)."
+          "Setting state, about to rerender."
         );
         setPixslyState(pixslyData);
       } catch (error) {
@@ -35,7 +35,7 @@ function Edit() {
       }
     };
 
-    console.log("#2: inside useeffect...component mounted, now we are here.");
+    console.log("Component mounted.");
 
     fetchPixsly(); //fetching data and setting state
   }, [id, number]);

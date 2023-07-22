@@ -37,7 +37,6 @@ function Home() {
             <Card className="custom-card p-0">
               <Card.Img variant="top" src={pixsly.image} />
               <Card.Body>
-                {/* <Card.Title>{pixsly.name}</Card.Title> */}
                 <Button variant="transparent btn-square btn-sm" as={Link} to={`/${pixsly._id}`}>...</Button>
               </Card.Body>
             </Card>
