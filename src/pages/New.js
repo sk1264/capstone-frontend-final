@@ -95,7 +95,7 @@ function NewPixslyFunc() {
         </Form.Group>
 
         <Col className="d-flex justify-content-center">
-          <Button className="btn-primary" type="submit">Submit</Button>
+          <Button className="btn-secondary" type="submit">Submit</Button>
         </Col>
       </Form>
     </Container>
